@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Minimal Buttons</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Segoe+UI&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+      overflow: hidden;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    video#bg-video {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover;
+      z-index: -1;
+      background-color: black;
+    }
+
+    /* Top-right square buttons */
+    .top-buttons {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      display: flex;
+      gap: 1cm;
+    }
+
+ .square-button {
+  width: 150px;
+  height: 50px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.square-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
+}
+
+.square-button span {
+  color: grey;
+  font-size: 16px;
+  font-weight: 500;
+  text-decoration: none;
+}
+a {
+  text-decoration: none; /* remove underline */
+}
+
+
+    /* Social Media Buttons at Bottom */
+    .wrapper {
+      position: absolute;
+      bottom: 20px;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+    }
+
+    .wrapper .button {
+      display: inline-block;
+      height: 60px;
+      width: 60px;
+      text-decoration: none;
+      overflow: hidden;
+      border-radius: 50px;
+      cursor: pointer;
+      backdrop-filter: blur(10px);
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      transition: all 0.3s ease-out;
+    }
+
+    .wrapper .button:hover {
+      width: 200px;
+    }
+
+    .wrapper .button .icon {
+      display: inline-block;
+      height: 60px;
+      width: 60px;
+      color: #fff;
+      text-align: center;
+      border-radius: 50px;
+      line-height: 60px;
+      transition: all 0.3s ease-out;
+    }
+
+    .wrapper .button:nth-child(1):hover .icon {
+      background: #4267B2;
+    }
+    .wrapper .button:nth-child(2):hover .icon {
+      background: #1DA1F2;
+    }
+    .wrapper .button:nth-child(3):hover .icon {
+      background: #E1306C;
+    }
+    .wrapper .button:nth-child(4):hover .icon {
+      background: #333;
+    }
+    .wrapper .button:nth-child(5):hover .icon {
+      background: #ff0000;
+    }
+
+    .wrapper .button .icon i {
+      font-size: 25px;
+      line-height: 60px;
+    }
+
+    .wrapper .button span {
+      font-size: 20px;
+      font-weight: 500;
+      line-height: 60px;
+      margin-left: 10px;
+      color: #fff;
+      transition: all 0.3s ease-out;
+    }
+
+    .wrapper .button:nth-child(1) span {
+      color: #4267B2;
+    }
+    .wrapper .button:nth-child(2) span {
+      color: #1DA1F2;
+    }
+    .wrapper .button:nth-child(3) span {
+      color: #E1306C;
+    }
+    .wrapper .button:nth-child(4) span {
+      color: #ccc;
+    }
+    .wrapper .button:nth-child(5) span {
+      color: #ff0000;
+    }
+
+  </style>
+</head>
+<script>
+  function launchAndRedirect(event) {
+    event.preventDefault(); // stop normal link behavior
+
+    fetch("http://localhost:3000/run-traffic")
+      .then(response => response.text())
+      .then(data => {
+        console.log(data);
+        // redirect after backend call
+        window.location.href = "launch.html";
+      })
+      .catch(error => {
+        console.error("Error:", error);
+        window.location.href = "launch.html"; // still redirect in case of error
+      });
+  }
+</script>
+
+
+<body>
+
+  <!-- Background Video -->
+  <video autoplay muted id="bg-video" onended="this.pause(); this.currentTime = this.duration;">
+    <source src="new.mp4" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
+
+  <div class="top-buttons">
+  <a href="test2.html" title="go">
+    <div class="square-button"><span>Next</span></div>
+</div>
+  </a>
+
+  </a>
+</div>
+
+ </a>
+</div>
+
+  <!-- Social Media Buttons -->
+  <div class="wrapper">
+    <a href="#" class="button">
+      <div class="icon"><i class="fab fa-facebook-f"></i></div>
+      <span>Facebook</span>
+    </a>
+    <a href="#" class="button">
+      <div class="icon"><i class="fab fa-twitter"></i></div>
+      <span>Twitter</span>
+    </a>
+    <a href="#" class="button">
+      <div class="icon"><i class="fab fa-instagram"></i></div>
+      <span>Instagram</span>
+    </a>
+    <a href="#" class="button">
+      <div class="icon"><i class="fab fa-github"></i></div>
+      <span>GitHub</span>
+    </a>
+    <a href="#" class="button">
+      <div class="icon"><i class="fab fa-youtube"></i></div>
+      <span>YouTube</span>
+    </a>
+  </div>
+
+</body>
+</html>

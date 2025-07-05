@@ -43,6 +43,6 @@ This project detects and classifies traffic signs in real-time using a custom-tr
   names: ['Speed Limit 20', 'Speed Limit 30', ...]
 
 
-
-
+🎬 Demo Video
+(demo/demo.mp4)
 

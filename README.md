@@ -44,5 +44,5 @@ This project detects and classifies traffic signs in real-time using a custom-tr
 
 
 🎬 Demo Video
-(demo/demo.mp4)
+(vd/demo.mp4)
 
